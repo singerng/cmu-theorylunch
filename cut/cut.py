@@ -54,4 +54,4 @@ print("new size:", title.size)
 
 clip = concatenate_videoclips([title, clip], method="compose")
 
-clip.write_videofile(args.output_file, temp_audiofile='temp-audio.mp4', remove_temp=True, codec='libx264', audio_codec='aac')
+clip.write_videofile(args.output_file, temp_audiofile='temp-audio-{}.mp4'.format(args.output_file), remove_temp=True, codec='libx264', audio_codec='aac')
