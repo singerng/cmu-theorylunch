@@ -11,6 +11,10 @@ After running, the title slide image will be displayed (e.g. in Preview on Mac) 
 from PIL import Image, ImageFont, ImageDraw
 from PIL import ImageFont
 
+import sys
+assert len(sys.argv) == 2
+filename = sys.argv[1]
+
 title_lines = []
 while True:
     line = input("Title line (empty to stop): ")
@@ -82,4 +86,6 @@ draw.text((SEMESTER_X, SEMESTER_Y), SEMESTER_TEXT, font=semester_font, fill=SEME
 
 draw.rectangle([0, 0, SEMESTER_BLOCK_WIDTH, IMAGE_HEIGHT], fill=SEMESTER_BLOCK_COLOR)
 
+img.save(filename)
+print("Saved to {}. Showing preview!".format(filename))
 img.show()
