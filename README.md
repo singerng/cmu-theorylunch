@@ -5,21 +5,26 @@ A collection of scripts and instructions for maintaining the YouTube channel and
 - Brian Zhang (@brianhzhang)
 - Noah Singer (@singerng)
 
-## HOWTO
+## PURPOSE
 
 This repository contains scripts for making recorded videos into YouTube videos. There are two tasks:
 
 1. Creating a title slide image.
 2. Editing the title slide into the video.
 
-At the beginning of the semester, please pick a color to use for all the YouTube title slides for the semester. This color will be encoded as an HTML color: `<red_hex> <green_hex> <blue_hex>`. A reference might be [https://htmlcolorcodes.com].
+## SETUP
 
-You will need to install a font called `SIMPLIFICA Typeface`, which you can find for free online.
+1. You will need to install a font called `SIMPLIFICA Typeface`, which you can find for free online.
+2. At the beginning of the semester, please pick a color to use for all the YouTube title slides for the semester. This color will be encoded as an HTML color: `<red_hex> <green_hex> <blue_hex>`. A reference might be [https://htmlcolorcodes.com].
+3. If you're using a Mac, you may have to use `python3` instead of `python`. You can install `pip` (the Python package manager), if you don't have it already, via `python3 -m ensurepip`. You also may need to use `pip3`.
+4. The scripts require two libraries, `Pillow` and `moviepy`. As of Spring 2024, we used versions `9.5.0` and `1.0.3` respectively of the packages. (`moviepy` doesn't appear to work with the latest version of `Pillow`.) `moviepy` depends on a video library called `ffmpeg`. On Mac, you can get `ffmpeg` by installing the `homebrew` package manager (see [https://brew.sh]) and then running `brew install ffmpeg`. Then, install the Python libraries using the commands:
 
-The scripts require two libraries, `Pillow` and `moviepy`. As of Spring 2024, we used versions `9.5.0` and `1.0.3` respectively of the packages. (`moviepy` doesn't appear to work with the latest version of `Pillow`.) You can install these with the commands:
+```
+pip install moviepy==1.0.3
+pip install pillow==9.5.0
+```
 
-`pip install pillow==9.5.0`
-`pip install moviepy==1.0.3`
+## HOWTO
 
 ### Creating the title slide
 
