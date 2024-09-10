@@ -21,9 +21,10 @@ title_text = "\n".join(title_lines)
 author_text = input("Presenter: ")
 date_text = input("Date (e.g., 10 Apr 2024): ")
 semester_name_text = input("Semester (e.g., Spring 2024): ")
-semester_color_r = int(input("Semester color, R (in hex): "), 16)
-semester_color_g = int(input("Semester color, G (in hex): "), 16)
-semester_color_b = int(input("Semester color, B (in hex): "), 16)
+semester_color = input("Semester color in hex: ")
+semester_color_r = int(semester_color[0:2], 16)
+semester_color_g = int(semester_color[2:4], 16)
+semester_color_b = int(semester_color[4:6], 16)
 
 img = Image.open("title_slide_template.png")
 draw = ImageDraw.Draw(img)
@@ -73,8 +74,8 @@ SEMESTER_X = 1850
 SEMESTER_Y = 250
 SEMESTER_BLOCK_WIDTH = 70
 
-SEMESTER_TEXT = "Theory Lunch - {}".format(semester_text)
-SEMESTER_BLOCK_COLOR = (0xb4, 0xd3, 0xb2)
+SEMESTER_TEXT = "Theory Lunch - {}".format(semester_name_text)
+SEMESTER_BLOCK_COLOR = (semester_color_r, semester_color_g, semester_color_b)
 
 semester_font = ImageFont.truetype(SEMESTER_FONT_NAME, SEMESTER_FONT_SIZE, index=SEMESTER_FONT_IDX)
 draw.text((SEMESTER_X, SEMESTER_Y), SEMESTER_TEXT, font=semester_font, fill=SEMESTER_COLOR, align="right", anchor="rs")
